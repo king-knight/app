@@ -4,7 +4,6 @@ import java.io.File;
 
 import com.jiaparts.server.provide.ResourceService;
 import com.jiaparts.server.provide.RestService;
-import com.jiaparts.server.test.TestService;
 import com.jiaparts.server.utils.StringUtils;
 
 import lombok.Getter;
@@ -28,7 +27,7 @@ public class PathMathcer {
 			
 		}
 		
-		return new TestService();
+		return null;
 	}
 
 	private static String getResourceBySufix(String rawPath) {

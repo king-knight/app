@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSONArray;
 import com.jiaparts.server.provide.RestRequest;
 import com.jiaparts.server.provide.RestResponse;
 import com.jiaparts.server.provide.RestService;
@@ -86,7 +87,11 @@ public class HttpRequestHandler extends ChannelInboundHandlerAdapter {
 			restReq.setParameters(restMap);
 			parameters.forEach((k, v) -> {
 				if (v != null) {
-					restMap.put(k, v.get(0));
+					if(k.endsWith("[]")) {
+						restMap.put(k.replace("[]", ""), JSONArray.toJSONString(v));
+					}else {
+						restMap.put(k, v.get(0));
+					}
 				}
 			});
 			restResp = new RestResponse();
