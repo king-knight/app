@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- 控制台输出日志 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[%-5level] %logger %L -- %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<logger name="org.apache" level="error"/>
+	
+	<logger name="org.I0Itec" level="error"/>
+	
+	<logger name="com.alibaba" level="error"/>
+	<root level="debug">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
